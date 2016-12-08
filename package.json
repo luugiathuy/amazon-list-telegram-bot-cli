@@ -1,0 +1,43 @@
+{
+  "name": "amazon-list-telegram-bot-cli",
+  "version": "0.0.1",
+  "description": "Send an Amazon wish list/shopping list from a Telegram Bot to you",
+  "license": "MIT",
+  "repository": "luugiathuy/amazon-list-telegram-bot-cli",
+  "author": {
+    "name": "Luu Gia Thuy",
+    "email": "luugiathuy@gmail.com",
+    "url": "luugiathuy.com"
+  },
+  "preferGlobal": true,
+  "engines": {
+    "node": ">=4"
+  },
+  "bin": {
+    "amazon-list-telegram-bot-cli": "index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "amazon-list-scraper": "^0.0.4",
+    "meow": "^3.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "keywords": [
+    "cli",
+    "amazon wish list",
+    "scraper",
+    "scrape",
+    "telegram",
+    "bot"
+  ]
+}
