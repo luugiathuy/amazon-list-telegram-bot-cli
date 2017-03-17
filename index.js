@@ -42,8 +42,7 @@ const scraper = new AmazonListScraper();
 
 scraper.scrape(listUrl)
   .then((items) => {
-    const textMessage = `Yo! There are *${items.length}* items in your list:\n${itemsToMessage(items)}`;
-
+    const textMessage = `Yo! There are *${items.length}* items in your list:\n${itemsToMessage(items)}`.substring(0, 4096);
     const postData = querystring.stringify({
       chat_id: chatId,
       text: textMessage,
