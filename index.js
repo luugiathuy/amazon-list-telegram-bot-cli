@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+
+'use strict';
+
 const meow = require('meow');
 const https = require('https');
 const querystring = require('querystring');
