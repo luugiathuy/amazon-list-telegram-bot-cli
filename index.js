@@ -5,6 +5,8 @@ const https = require('https');
 const querystring = require('querystring');
 const AmazonListScraper = require('amazon-list-scraper');
 
+const TELEGRAM_TEXT_MAX_LENGTH = 4096;
+
 const help = `
 Usage
   $ amazon-list-telegram-bot-cli <amazon-list-url> <telegram-bot-token> <telegram-chat-id>
@@ -42,7 +44,14 @@ const scraper = new AmazonListScraper();
 
 scraper.scrape(listUrl)
   .then((items) => {
-    const textMessage = `Yo! There are *${items.length}* items in your list:\n${itemsToMessage(items)}`.substring(0, 4096);
+    let textMessage = `Yo! *${items.length}* items in your list:\n${itemsToMessage(items)}`;
+    if (textMessage.length > TELEGRAM_TEXT_MAX_LENGTH) {
+      textMessage = textMessage.substring(0, TELEGRAM_TEXT_MAX_LENGTH);
+      // Remove last line as it may not be in correct Markdown format
+      // which causes message failed to send
+      textMessage = textMessage.substring(0, textMessage.lastIndexOf('\n'));
+    }
+
     const postData = querystring.stringify({
       chat_id: chatId,
       text: textMessage,
