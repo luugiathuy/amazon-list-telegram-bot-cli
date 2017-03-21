@@ -1,6 +1,6 @@
 {
   "name": "amazon-list-telegram-bot-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Send an Amazon wish list/shopping list from a Telegram Bot to you",
   "license": "MIT",
   "repository": "luugiathuy/amazon-list-telegram-bot-cli",
