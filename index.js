@@ -6,13 +6,16 @@
 const meow = require('meow');
 const https = require('https');
 const querystring = require('querystring');
-const AmazonListScraper = require('amazon-list-scraper');
+const AmazonListScraper = require('amazon-list-scraper').default;
 
 const TELEGRAM_TEXT_MAX_LENGTH = 4096;
 
 const help = `
 Usage
   $ amazon-list-telegram-bot-cli <amazon-list-url> <telegram-bot-token> <telegram-chat-id>
+
+Options
+  --sort=<string> can be 'price-asc', 'price-desc'
 
 Example
   $ amazon-list-telegram-bot-cli 'https://www.amazon.com/gp/registry/wishlist/XXX' 'YYY' 'ZZZ'
@@ -43,7 +46,7 @@ function itemsToMessage(items) {
   )).join('\n');
 }
 
-const scraper = new AmazonListScraper();
+const scraper = new AmazonListScraper(cli.flags);
 
 scraper.scrape(listUrl)
   .then((items) => {

@@ -11,7 +11,7 @@
   },
   "preferGlobal": true,
   "engines": {
-    "node": ">=4"
+    "node": "6"
   },
   "bin": {
     "amazon-list-telegram-bot-cli": "index.js"
@@ -24,7 +24,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "amazon-list-scraper": "^0.0.6",
+    "amazon-list-scraper": "^0.1.1",
     "meow": "^3.7.0"
   },
   "devDependencies": {
